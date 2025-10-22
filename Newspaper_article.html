@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kopanye's favorite things to read</title>
+  <style>
+
+    :root{
+      --accent:#2b6cb0;
+      --muted:#6b7280;
+      --paper:#f7f7f4;
+      --card:#ffffff;
+      --max-width:1100px;
+      --radius:14px;
+      font-family: "Georgia", "Times New Roman", serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--paper),#fff);
+      color:#222;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
+    .newspaper{
+      width:100%;
+      max-width:var(--max-width);
+      background:var(--card);
+      border-radius:10px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.08);
+      overflow:hidden;
+    }
+    header{
+      padding:22px 26px;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid #eee;
+      gap:18px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo-mark{
+      width:64px;height:64px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#9f7aea);
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;
+      box-shadow:0 6px 18px rgba(43,108,176,0.18);
+    }
+    .title{
+      line-height:1;
+    }
+    .title h1{margin:0;font-size:20px;letter-spacing:0.4px}
+    .title p{margin:2px 0 0 0;color:var(--muted);font-size:13px}
+    .date{margin-left:auto;color:var(--muted);font-size:14px}
+
+    nav{
+      display:flex;gap:12px;padding:14px 26px;border-bottom:1px solid #f0f0f0;background:#fafafa;
+    }
+    nav a{color:var(--accent);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:8px}
+    nav a:hover{background:rgba(43,108,176,0.06)}
+
+    .content{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:24px;
+      padding:26px;
+    }
+
+    main{min-width:0}
+    .hero{
+      background: linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.08)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
+      border-radius:12px;padding:20px;color:#fff;display:flex;flex-direction:column;gap:12px;margin-bottom:18px;
+    }
+    .hero h2{margin:0;font-size:28px;font-family:inherit}
+    .hero .byline{font-size:13px;color:rgba(255,255,255,0.9)}
+
+    .articles{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    article.card{
+      background:#fff;border-radius:12px;padding:14px;border:1px solid #f1f1f1;
+      box-shadow:0 6px 18px rgba(15,23,42,0.03);
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    article.card img{width:120px;height:80px;object-fit:cover;border-radius:10px}
+    article.card h3{margin:0;font-size:16px}
+    article.card p{margin:8px 0 0 0;color:var(--muted);font-size:14px}
+
+    .big-article{
+      display:flex;gap:18px;margin-bottom:18px;align-items:flex-start;
+    }
+    .big-article img{width:320px;height:210px;object-fit:cover;border-radius:12px}
+    .big-article .copy{flex:1}
+    .big-article h2{margin:0;font-size:26px}
+    .big-article p{color:var(--muted);line-height:1.6}
+
+    aside.sidebar{
+      background:linear-gradient(180deg,#fff,#f8fafc);border-radius:12px;padding:14px;border:1px solid #f0f0f0;height:max-content;
+    }
+    .widget{margin-bottom:14px}
+    .widget h4{margin:0 0 8px 0;font-size:15px}
+    .event{padding:8px;border-radius:8px;background:#fff;border:1px dashed #eee;margin-bottom:8px}
+    .weather{display:flex;gap:12px;align-items:center}
+    .weather .icon{font-size:28px}
+
+    footer{
+      padding:18px 26px;border-top:1px solid #eee;background:#fafafa;display:flex;justify-content:space-between;align-items:center;gap:12px
+    }
+    .social a{margin-left:12px;text-decoration:none;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .content{grid-template-columns:1fr}
+      .big-article{flex-direction:column}
+      .big-article img{width:100%;height:200px}
+      article.card img{width:100%;height:160px}
+      .articles{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="newspaper" role="document">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">KR</div>
+        <div class="title">
+          <h1>kopanye's favorite things to read</h1>
+          <p>curated selections &mdash; thoughtful reads</p>
+        </div>
+      </div>
+      <div class="date" id="date">Loading date...</div>
+    </header>
+
+    <nav aria-label="Main navigation">
+      <a href="#politics">Politics</a>
+      <a href="#sports">Sports</a>
+      <a href="#tech">Tech</a>
+    </nav>
+
+    <section class="content">
+      <main>
+        <!-- Big headline about Mkhwanzi's story -->
+        <div class="big-article" id="mkhwanzi">
+          <img src="Pics/download.jpeg" alt="Mkhwanzi portrait">
+          <div class="copy">
+            <h2>Mkhwanzi: A Journey From Village Courts to City Voices</h2>
+            <p class="byline">By Kopanye Ramokgopa &middot; Feature</p>
+            <p>
+              Mkhwanzi's name had long been a whisper in the market squares — a storyteller with a memory for people's small, sacred truths. Today, that whisper has swelled into conversations across the city as Mkhwanzi leads a community movement that blends traditional dispute resolution with modern civic advocacy. From humble beginnings in a riverside village to convening public forums in the city hall, this is the story of resilience, quiet leadership and the art of listening.
+            </p>
+            <p>
+              At the heart of Mkhwanzi's approach is a belief that storytelling heals: local disputes are not just legal problems but relationships frayed by time, scarcity and misunderstanding. With a small but devoted team, Mkhwanzi has piloted mediation circles, youth training programs and free legal clinics that prioritize dignity over procedure. The results are measured not only in cases resolved but in neighbors resuming conversation and festivals returning to the square.
+            </p>
+            <p>
+              Critics argue the model can't scale — and they have a point: resources are limited, and systemic issues like land rights and formal policy require government action. Yet, the project has forced officials to listen, and in a recent council meeting representatives acknowledged the need to incorporate local knowledge into justice planning. For many, Mkhwanzi's real achievement is reminding a bustling city how to pay attention to the small things that make community possible.
+            </p>
+          </div>
+        </div>
+
+        <!-- Two smaller articles in grid -->
+        <div class="articles">
+          <article class="card" id="tech">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=60" alt="Python code on a laptop">
+            <div>
+              <h3>Automating the Boring Stuff: Python Scripts for Everyday Tasks</h3>
+              <p>
+                From renaming files to scraping simple reports, Python remains one of the most accessible automation tools. This primer covers small scripts you can write in a weekend to reclaim time — plus a caution about task scope and reliability.
+              </p>
+            </div>
+          </article>
+
+          <article class="card" id="sports">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=60" alt="Gospel concert crowd">
+            <div>
+              <h3>Gospel Music Concerts Bring the Community Together</h3>
+              <p>
+                This weekend several gospel choirs joined in one sweeping concert that filled the hall with voices and stories. Beyond music, these gatherings are platforms for charity, mentorship and youth engagement.
+              </p>
+            </div>
+          </article>
+        </div>
+
+      </main>
+
+      <aside class="sidebar" aria-label="Sidebar">
+        <div class="widget">
+          <h4>Upcoming Events</h4>
+          <div class="event">
+            <strong>Community Mediation Workshop</strong>
+            <div style="font-size:13px;color:var(--muted)">Nov 08, 2025 &middot; Community Hall</div>
+          </div>
+          <div class="event">
+            <strong>Python Automation 101 (Short Course)</strong>
+            <div style="font-size:13px;color:var(--muted)">Oct 30, 2025 &middot; Tech Hub</div>
+          </div>
+          <div class="event">
+            <strong>City Gospel Concert</strong>
+            <div style="font-size:13px;color:var(--muted)">Nov 02, 2025 &middot; Grand Arena</div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h4>Weather Update</h4>
+          <div class="weather">
+            <div class="icon">☀️</div>
+            <div>
+              <div style="font-weight:700">Johannesburg</div>
+              <div style="color:var(--muted);font-size:14px">Sunny &middot; 24°C (High: 26°C / Low: 12°C)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="widget">
+          <h4>Quick Links</h4>
+          <ul style="padding-left:18px;color:var(--muted);margin:0">
+            <li><a href="#mkhwanzi" style="color:var(--accent);text-decoration:none">Read the feature on Mkhwanzi</a></li>
+            <li><a href="#tech" style="color:var(--accent);text-decoration:none">Python automation guide</a></li>
+            <li><a href="#sports" style="color:var(--accent);text-decoration:none">Gospel concerts</a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </section>
+
+    <footer>
+      <div>
+        <strong>kopanye Ramokgopa</strong>
+        <div style="color:var(--muted);font-size:13px">Editor & Curator</div>
+      </div>
+      <div class="social">
+        <span style="color:var(--muted);font-size:13px">Follow</span>
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Populate the date in the header (uses user's locale)
+    const dateEl = document.getElementById('date');
+    const now = new Date();
+    const opts = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
+    dateEl.textContent = now.toLocaleDateString(undefined, opts);
+  </script>
+</body>
+</html>
